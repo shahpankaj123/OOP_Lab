@@ -14,6 +14,12 @@ public class Signup {
     int count = 0; 
     
     public void displayUser(int id) {
+    	System.out.println("user detail");
+    	System.out.println("Name" + names[id] );
+    	System.out.println("Contact Number" + mobiles[id]);
+    	System.out.println("Password" + passwords[id]);
+    	System.out.println("Date of birth"+ dobs[id]);
+    	
     	
     }
 
@@ -79,9 +85,8 @@ public class Signup {
             passwords[count] = password;
             dobs[count] = dob;
 
-            count++;
-
             System.out.println("\nYou have successfully signed up." + "Your Id is :" + count);
+            count++;
             break;
         }
     }
