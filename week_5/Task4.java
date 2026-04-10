@@ -4,6 +4,7 @@ package week_5;
 interface Employee {
  void printEmployeeId();
  void printSalary();
+ 
 }
 
 

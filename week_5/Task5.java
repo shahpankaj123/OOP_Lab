@@ -9,9 +9,9 @@ class InvalidAgeException extends Exception {
 
 public class Task5 {
     
-    static void checkAge(int age) throws InvalidAgeException {
+    static void checkAge(int age) throws Exception {
         if (age < 18) {
-            throw new InvalidAgeException("Age must be 18 or above");
+            throw new InvalidAgeException("Age must be 18 or above ....");
         } else {
             System.out.println("Eligible to vote");
         }
@@ -20,8 +20,12 @@ public class Task5 {
     public static void main(String[] args) {
         try {
             checkAge(19); 
-        } catch (InvalidAgeException e) {
-            System.out.println("Exception caught: " + e.getMessage());
+            
+           
+        } 
+        catch( Exception e) {
+        	System.out.println("Exception caught: " + e.getMessage());
+        	
         }
     }
 }
