@@ -6,17 +6,17 @@ public class HashMapExample {
 	public static void main(String[] args) {
 
 
-        HashMap<Integer, String> contacts = new HashMap<>();
+        HashMap<String, String> contacts = new HashMap<>();
 
 
-        contacts.put(1, "9841000001");
-        contacts.put(2, "9841000002");
+        contacts.put("ram", "9841000001");
+        contacts.put("shyam", "9841000002");
 
 
         System.out.println(contacts);
 
 
-        System.out.println("Sita's number: " + contacts.get(1));
+        System.out.println("Sita's number: " + contacts.get("ram"));
     }
 
 }
