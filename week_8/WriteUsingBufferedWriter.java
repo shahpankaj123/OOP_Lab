@@ -10,7 +10,8 @@ public class WriteUsingBufferedWriter {
         String data = "Java is a high level and object oriented programming language";
 
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter("media/task3.txt"));
+        	FileWriter fis = new FileWriter("media/task3.txt");
+            BufferedWriter bw = new BufferedWriter(fis);
             bw.write(data);
             bw.newLine();
             bw.close();
