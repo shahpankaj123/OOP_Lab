@@ -2,22 +2,17 @@ package week_10;
 
 import java.awt.EventQueue;
 
-import javax.swing.JOptionPane;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import java.awt.Color;
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class DesignView extends JFrame {
+public class LoginForm extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -31,7 +26,7 @@ public class DesignView extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					DesignView frame = new DesignView();
+					LoginForm frame = new LoginForm();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -43,51 +38,53 @@ public class DesignView extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public DesignView() {
-		setTitle("Converter");
+	public LoginForm() {
+		setTitle("Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 506, 353);
+		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
-		contentPane.setForeground(new Color(245, 255, 230));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Celsius");
-		lblNewLabel.setBounds(106, 22, 80, 25);
+		JLabel lblNewLabel = new JLabel("UserName");
+		lblNewLabel.setBounds(96, 31, 117, 16);
 		contentPane.add(lblNewLabel);
 		
 		textField = new JTextField();
-		textField.setBounds(239, 21, 130, 26);
+		textField.setBounds(248, 26, 130, 26);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		JLabel lblNewLabel_1 = new JLabel("output");
-		lblNewLabel_1.setBounds(106, 89, 80, 25);
+		JLabel lblNewLabel_1 = new JLabel("Password");
+		lblNewLabel_1.setBounds(96, 86, 61, 16);
 		contentPane.add(lblNewLabel_1);
 		
 		textField_1 = new JTextField();
-		textField_1.setEditable(false);
-		textField_1.setBounds(239, 88, 130, 26);
+		textField_1.setBounds(248, 86, 130, 26);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
-		JButton btnNewButton = new JButton("convert");
+		JButton btnNewButton = new JButton("login");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try {
-				double cel = Double.parseDouble(textField.getText());
-				double res = ((9*cel)/5) +32;
-				textField_1.setText(" " + res);
-				}catch(Exception ex) {
-					JOptionPane.showConfirmDialog(null, "Something Went Wrong");
+				String userName = textField.getText().toString();
+				String password = textField_1.getText().toString();
+				
+				if(userName.isEmpty() || password.isEmpty()) {
+					JOptionPane.showConfirmDialog(null, "UserName or Password cannot be Empty");
 				}
-			}
+				
+				if(userName.equalsIgnoreCase("admin") && password.equalsIgnoreCase("admin")) {
+					JOptionPane.showConfirmDialog(null, "Login Succussfully !");
+				}
+				else {
+					JOptionPane.showConfirmDialog(null, "UserName or Password not Matched!!");
+				}
+				}
 		});
-		btnNewButton.setBounds(106, 167, 117, 29);
+		btnNewButton.setBounds(96, 146, 117, 29);
 		contentPane.add(btnNewButton);
-		
-		
 
 	}
 }
